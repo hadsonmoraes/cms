@@ -1,0 +1,17 @@
+{
+    "name": "cms/site-home",
+    "description": "Home module",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Site\\Home\\": "app/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Site\\Home\\Providers\\HomeServiceProvider"
+            ]
+        }
+    }
+}

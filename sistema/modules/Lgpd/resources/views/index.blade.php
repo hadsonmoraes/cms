@@ -1,0 +1,5 @@
+@extends('sistema::layouts.admin', ['title' => 'LGPD'])
+
+@section('content')
+    <div class="card"><div class="card-header"><h5 class="mb-0">Consentimentos registrados</h5></div><div class="table-responsive"><table class="table mb-0"><thead><tr><th>Usuário</th><th>Finalidade</th><th>Status</th><th>Data</th></tr></thead><tbody>@forelse ($consents as $consent)<tr><td>{{ $consent->user?->name ?? 'Anônimo' }}</td><td>{{ $consent->purpose }}</td><td><span class="badge text-bg-{{ $consent->granted ? 'success' : 'secondary' }}">{{ $consent->granted ? 'Concedido' : 'Não concedido' }}</span></td><td>{{ $consent->granted_at?->format('d/m/Y H:i') ?? '-' }}</td></tr>@empty<tr><td colspan="4" class="text-muted">Nenhum consentimento registrado.</td></tr>@endforelse</tbody></table></div></div>
+@endsection

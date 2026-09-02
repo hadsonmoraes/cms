@@ -1,0 +1,10 @@
+@extends('{{ layout }}')
+
+@section('title', '{{ module }}')
+
+@section('content')
+
+
+    <h1>{{ module }}</h1>
+
+@endsection

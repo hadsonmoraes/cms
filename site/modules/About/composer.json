@@ -1,0 +1,17 @@
+{
+    "name": "cms/site-about",
+    "description": "About module",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Site\\About\\": "app/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Site\\About\\Providers\\AboutServiceProvider"
+            ]
+        }
+    }
+}
