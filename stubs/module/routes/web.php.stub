@@ -3,5 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use {{ namespace }}\{{ module }}\Http\Controllers\{{ module }}Controller;
 
+Route::middleware(['web', 'auth', 'module.access:{{ module }}'])->group(function () {
 Route::get('/{{ route }}', [{{ module }}Controller::class, 'index'])
     ->name('{{ namespace }}.{{ module }}.index');
+});

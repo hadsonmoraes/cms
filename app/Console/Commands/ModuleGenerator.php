@@ -17,10 +17,19 @@ class ModuleGenerator
         $basePath = base_path(
             "{$context}/modules/{$name}"
         );
+        $modelPath = app_path("Models/{$name}Content.php");
 
         if (File::exists($basePath)) {
             $this->error(
                 "O módulo {$name} já existe em {$basePath}."
+            );
+
+            return 1;
+        }
+
+        if (File::exists($modelPath)) {
+            $this->error(
+                "O model {$name}Content já existe em {$modelPath}."
             );
 
             return 1;
@@ -36,6 +45,10 @@ class ModuleGenerator
 
         $this->line(
             "Local: {$context}/modules/{$name}"
+        );
+
+        $this->line(
+            "Model: app/Models/{$name}Content.php"
         );
 
         $this->line(
@@ -88,6 +101,17 @@ class ModuleGenerator
             $content = File::get(base_path("stubs/module/{$stub}"));
             File::put("{$basePath}/{$target}", str_replace(array_keys($replacements), array_values($replacements), $content));
         }
+
+        File::ensureDirectoryExists(app_path('Models'));
+
+        $modelStub = File::get(base_path('stubs/module/app/models/ModuleModels.php.stub'));
+        $modelContent = str_replace(
+            ['{{ module }}', '{{ namespace }}'],
+            [$name, 'App\\Models'],
+            $modelStub
+        );
+
+        File::put(app_path("Models/{$name}Content.php"), $modelContent);
     }
 
     private function error(string $message): void
