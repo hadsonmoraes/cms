@@ -6,8 +6,8 @@
     @endif
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Usuários cadastrados</h5><a href="{{ route('Sistema.Usuarios.create') }}"
-                class="btn btn-primary">Novo usuário</a>
+            <h5 class="mb-0">Usuários cadastrados</h5>
+            <a href="{{ route('Sistema.Usuarios.create') }}" class="btn btn-primary">Novo usuário</a>
         </div>
         <div class="table-responsive">
             <table class="table mb-0 align-middle">

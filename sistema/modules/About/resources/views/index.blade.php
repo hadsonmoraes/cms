@@ -7,9 +7,9 @@
     <div class="card">
 
         <div class="card-header">
-            <h3 class="card-title">
+            {{-- <h3 class="card-title">
                 Sobre nós
-            </h3>
+            </h3> --}}
             @if ($about)
                 <a href="{{ route('Sistema.About.edit', $about) }}" class="btn btn-primary">Editar conteúdo</a>
             @else
